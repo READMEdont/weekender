@@ -17,7 +17,6 @@ function PackingList() {
 
   function createListArray(weather, list) {
     const newList = [];
-    console.log(list)
     list.forEach(item => {
 
       if (item.item === 'Toothpaste/brush' || item.item === 'Food') {
@@ -67,20 +66,20 @@ function PackingList() {
       }
 
     })
-    setList(newList);
+    return newList;
   }
 
 
 
   function getPackingList() {
-    axios.get(`/packing/list/${user.id}`)
-      .then(response => {
-        console.log(response.data.packingList)
-        const packingListItems = response.data.packingList
-        // setList(list => [...list, ...packingListItems]);
-        createListArray(weatherData, packingListItems)
+    axios
+      .get(`/packing/list/${user.id}`)
+      .then((response) => {
+        const packingListItems = response.data.packingList;
+        const newList = createListArray(weatherData, packingListItems);
+        setList(newList);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }
@@ -114,17 +113,29 @@ function PackingList() {
   }
 
   function handleChange(event, item) {
-    console.log('click')
     axios.put(`/packing/list/${user.id}/${item._id}`, {
       item: {
         isComplete: !item.isComplete
       }
     })
-      .then(getPackingList())
-      .then(window.location.reload())
-      .catch(error => {
-        console.error(error);
+    .then(() => {
+      setList(prevList => {
+        const newList = prevList.map(listItem => {
+          if (listItem._id === item._id) {
+            return {
+              ...listItem,
+              isComplete: !listItem.isComplete
+            };
+          } else {
+            return listItem;
+          }
+        });
+        return newList;
       });
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
 
