@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import TripWeatherbar from '../TripWeatherbar';
+import TripWeatherbar, { updateWeatherDataState } from '../TripWeatherbar';
 
 function PackingList({ user }) {
   const location = useLocation();
@@ -142,7 +142,7 @@ console.log(weatherData)
         <button className='logoutButton' onClick={(logout)}>Log Out</button>
         <h3 className='welcome'>PACKING LIST PAGE</h3>
       </h1>
-      <TripWeatherbar />
+      <TripWeatherbar updateWeatherDataState={updateWeatherDataState}/>
       <div className='packing-container'>
         <ul className='packing-list'>
           {list.map((item, index) => <li key={index}>
