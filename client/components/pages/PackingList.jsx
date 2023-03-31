@@ -2,18 +2,18 @@ import { Link, useLocation } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function PackingList({ user }) {
+function PackingList() {
   const location = useLocation();
   const { weatherData } = location.state
   const [list, setList] = useState([]);
 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+
   useEffect(() => {
     // createListArray(weatherData);
-    getPackingList();
+    getPackingList()
   }, []);
 
-
-console.log(weatherData)
 
   function createListArray(weather, list) {
     const newList = [];
@@ -121,11 +121,11 @@ console.log(weatherData)
       }
     })
       .then(getPackingList())
+      .then(window.location.reload())
       .catch(error => {
         console.error(error);
       });
   }
-
 
 
 
@@ -144,12 +144,13 @@ console.log(weatherData)
       <div className='packing-container'>
         <ul className='packing-list'>
           {list.map((item, index) => <li key={index}>
-          <button id='del'>DEL</button>
+            <button id='del'>DEL</button>
             <label>
               <input
-                type='checkbox' 
-                checked={ item.isComplete }
-                onChange={ (event) => handleChange(event, item) }
+                id='my-checkbox'
+                type='checkbox'
+                checked={item.isComplete}
+                onChange={(event) => handleChange(event, item)}
               />
               {item.item}
             </label>
