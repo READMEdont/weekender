@@ -7,9 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const UpcomingTrip = ()=>{
-  
-  const logout = () =>{
+const UpcomingTrip = () => {
+
+  const logout = () => {
     window.open(`${process.env.REACT_APP_CLIENT_URL}auth/logout`, "_self");
   }
 
@@ -18,36 +18,37 @@ const UpcomingTrip = ()=>{
 
 
   useEffect(() => {
-    
+
     getTrip();
   }, [user]);
 
-  const getTrip = ()=>{
+  const getTrip = () => {
     console.log(user)
     axios.get(`trips/trips/${user.id}`)
-    .then((response)=>{
-   console.log(response.data)
-      setTrip(response.data)
-    })
+      .then((response) => {
+        console.log(response.data)
+        setTrip(response.data)
+      })
+      .catch(err => console.error())
   }
 
-const [ weatherData, setweatherData ] = useState(null);
+  const [weatherData, setweatherData] = useState(null);
 
-//a function that we will pass weather data from weatherbar up.
-const updateWeatherDataState = (weatherdata)=>{
- setweatherData(weatherdata)
-};
+  //a function that we will pass weather data from weatherbar up.
+  const updateWeatherDataState = (weatherdata) => {
+    setweatherData(weatherdata)
+  };
 
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  autoplay: true,
-  autoplaySpeed: 2000,
-};
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
 
 if(trip){
 return(
@@ -81,7 +82,7 @@ return(
  )
 }else{
   return(
-    <div>farts</div>
+    <div>Upcoming Trip: Try Again</div>
   )
 }
 };

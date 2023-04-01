@@ -3,10 +3,12 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 
 const TripWeatherbar = ({trip, updateWeatherDataState })=>{
+
     const [weather, setWeather] = useState({});
     
     useEffect(() => {
       //  define getWeather function
+      console.log("LOGGING TRIP ", trip);
       axios.get(`https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=${trip.campsiteLat}&longitude=${trip.campsiteLong}&daily=precipitation_probability_mean,uv_index_max,temperature_2m_max,temperature_2m_min,weathercode&start_date=${trip.dateStart}&end_date=${trip.dateEnd}&temperature_unit=fahrenheit`)
         .then(res => {
           setWeather(res.data.daily)
