@@ -50,41 +50,41 @@ const UpcomingTrip = () => {
     autoplaySpeed: 2000,
   };
 
-  if (trip) {
-    return (
-      <div className="ChosenCampGroundPage">
-        <div className="topBar">
-          <h1 className="weekendertext">
-            <Link to="/" style={{ textDecoration: 'none', textEmphasisColor: 'white' }}>WEEKENDER </Link></h1>
-          <h1 className='welcome'>{trip.campsiteName}</h1>
-          <button className='logoutButton' onClick={(logout)}>Log Out</button>
-        </div>
-        <TripWeatherbar trip={trip} updateWeatherDataState={updateWeatherDataState} />
-        {/* <img src={trip.campsiteImg[0].URL}/> */}
-        <div className='photoSlider'>
-          <Slider {...settings}>
-            {trip?.campsiteImg.map((image) => (
-              <div className="no">
-                <img className='ChosenCampGroundPhotos' src={image.URL} />
-                <span className="text">{trip.campsiteName}</span>
-              </div>
-            ))}
-          </Slider>
-        </div>
-        <div className='BottomStuff'>
-          <div className="ChosenCampGroundDesc" dangerouslySetInnerHTML={{ __html: trip.campsiteDesc }} />
-
-          <Link to="/packing-list" state={{ weatherData: weatherData }} style={{ textDecoration: 'none', textEmphasisColor: 'white' }}>
-            <button className='listButton'>Packing List</button>
-          </Link>
-        </div>
-      </div>
-    )
-  } else {
-    return (
-      <div>farts</div>
-    )
-  }
+if(trip){
+return(
+  <div className="ChosenCampGroundPage">
+  <div className="topBar">
+<h1 className="weekendertext">
+<Link to="/" style={{textDecoration: 'none', textEmphasisColor: 'white'}}>WEEKENDER </Link></h1>
+  <h1 className='welcome'>{trip.campsiteName}</h1>
+  <button className='logoutButton' onClick={(logout)}>Log Out</button>
+</div>
+   <TripWeatherbar trip={trip} updateWeatherDataState={updateWeatherDataState}/>
+   {/* <img src={trip.campsiteImg[0].URL}/> */}
+   <div className='photoSlider'>
+<Slider {...settings}>
+{trip?.campsiteImg.map((image) => (
+<div className="no">
+     <img className='ChosenCampGroundPhotos' src={image.URL} />
+     <span className="text">{trip.campsiteName}</span>
+     </div>
+))}
+</Slider>
+</div>
+<Link to="/packing-list" state={{weatherData:weatherData}}style={{textDecoration: 'none', textEmphasisColor: 'white', marginTop: '20px'}}>
+   <button className='listButton'>Packing List</button>
+   </Link>
+<div className='BottomStuff'>
+   <div className="ChosenCampGroundDesc"dangerouslySetInnerHTML={{ __html: trip.campsiteDesc}} />
+   
+   </div>
+   </div>
+ )
+}else{
+  return(
+    <div>farts</div>
+  )
+}
 };
 
 export default UpcomingTrip
