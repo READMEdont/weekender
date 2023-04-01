@@ -376,35 +376,39 @@ Campground List styles */
 .WeatherbarContainer{
   display: center;
   list-style-type: none;
-  padding: 0;
-  overflow-x: hidden;
+  padding: 100px;
+  overflow: hidden;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0px;
-  border-radius: 10px;
+  margin-bottom: auto;
+  border-radius: 15px;
+}
+.WeatherbarContainer li:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.WeatherbarContainer li:last-child {
+  border-radius: 0 10px 10px 0;
 }
 
 .forecast-tombstone{
   display: inline-block;
-  vertical-align: top;
-  margin: 0px auto;
+  vertical-align: auto;
+  margin: 0px;
   white-space: normal;
   font-size: 11px;
   text-align: center;
-  padding: 15px;
-  background-color: whitesmoke;
+  padding: 20px;
+  background-color: rgb(233, 230, 230);
+  transition: transform 0.3s ease-out;
 }
 
 .forecast-tombstone:hover{
-  display: inline-block;
-  vertical-align: top;
-  margin: 0px auto;
-  white-space: normal;
-  font-size: 11px;
-  text-align: center;
-  padding: 15px;
   background-color: white;
+  border-radius: 10px;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
 .day-of-week{
@@ -419,6 +423,7 @@ Campground List styles */
   font-weight: bold;
   font-size: 14px;
   margin-top: auto;
+  margin-bottom: 7px;
   color: #686666;
 }
 
@@ -451,5 +456,18 @@ Campground List styles */
   color: blue;
   margin: auto
 }
+
+.TripWeatherbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Set a high z-index value to position the component above other elements */
+}
+
+.BottomStuff {
+  padding-top: 80px; /* Add padding to the top of the page to prevent the component from overlapping with other elements */
+}
+
 
 

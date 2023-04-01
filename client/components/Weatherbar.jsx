@@ -142,7 +142,7 @@ const Weatherbar = ({ startDate, endDate, campground })=>{
             <ul className="WeatherbarContainer">
             {weather.time.map((prop, index) => {
                 return (
-                <li className="forecast-tombstone" key={weather.time}>
+                <li className="forecast-tombstone"key={weather.time}>
                     <p className="day-of-week">{daysOfWeek[dayjs(weather.time[index]).format('d')]}</p>
                     <p className="date">{dayjs(weather.time[index]).format('D MMM')}</p>
                     <p className="precipitation-probability">{weather.precipitation_probability_mean[index]}% Prec</p>
