@@ -152,7 +152,6 @@ const Weatherbar = ({ startDate, endDate, campground })=>{
                     <p className="temp-low">{weather.temperature_2m_min[index]}°F</p>
                 </li>  
                 )
-                
                 })}
             </ul>
         )

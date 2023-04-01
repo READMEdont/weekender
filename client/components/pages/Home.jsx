@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import Weatherbar from '../Weatherbar';
 import PastTripsBar from './PastTripsBar'
+
+
 const Home = ({user}) =>{
 
 

@@ -16,10 +16,11 @@ const PastTripsBar = ({user})=>{
   const getTrips = ()=>{
     axios.get(`trips/alltrips/${user.id}`)
     .then((response)=>{
-  
       setTrips(response.data)
     })
+    .catch(error => console.error(error))
   }
+  
 console.log(trips)
 let slideNum = 0
 if(trips && trips.length >= 3){
@@ -27,7 +28,6 @@ slideNum = 3
 }else if(trips&& trips.length < 3){
   slideNum = trips.length
 }
-
 
 const settings = {
   dots: true,
@@ -39,7 +39,7 @@ const settings = {
   autoplay: true,
   autoplaySpeed: 2000,
 };
-console.log(trips)
+
 if(trips){
   return(
     // <h2>Past Trips</h2>
@@ -56,6 +56,8 @@ if(trips){
     </Slider>
   </div>
   )
+}else{
+  return (<div>PastTripsTryAgain</div>)
 }
 
 

@@ -50,7 +50,7 @@ const UpcomingTrip = () => {
     autoplaySpeed: 2000,
   };
 
-if(trip){
+if(trip !== null){
 return(
   <div className="ChosenCampGroundPage">
   <div className="topBar">
@@ -82,7 +82,7 @@ return(
  )
 }else{
   return(
-    <div>farts</div>
+    <div>Upcoming Trip: Try Again</div>
   )
 }
 };
