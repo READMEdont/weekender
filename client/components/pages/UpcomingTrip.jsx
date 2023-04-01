@@ -7,9 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const UpcomingTrip = ()=>{
-  
-  const logout = () =>{
+const UpcomingTrip = () => {
+
+  const logout = () => {
     window.open(`${process.env.REACT_APP_CLIENT_URL}auth/logout`, "_self");
   }
 
@@ -18,79 +18,73 @@ const UpcomingTrip = ()=>{
 
 
   useEffect(() => {
-    
+
     getTrip();
   }, [user]);
 
-  const getTrip = ()=>{
-<<<<<<< HEAD
-    axios.get(`trips/trips/${user.id}`)
-    .then((response)=>{
-      console.log(`User: ${user}`, `Response ${response}`)
-=======
+  const getTrip = () => {
     console.log(user)
     axios.get(`trips/trips/${user.id}`)
-    .then((response)=>{
-   console.log(response.data)
->>>>>>> e3bf6e1636c1b3613fb83c4a273c787feed3d400
-      setTrip(response.data)
-    })
-    .catch(err => console.error())
+      .then((response) => {
+        console.log(response.data)
+        setTrip(response.data)
+      })
+      .catch(err => console.error())
   }
 
-const [ weatherData, setweatherData ] = useState(null);
+  const [weatherData, setweatherData] = useState(null);
 
-//a function that we will pass weather data from weatherbar up.
-const updateWeatherDataState = (weatherdata)=>{
- setweatherData(weatherdata)
-};
+  //a function that we will pass weather data from weatherbar up.
+  const updateWeatherDataState = (weatherdata) => {
+    setweatherData(weatherdata)
+  };
 
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  autoplay: true,
-  autoplaySpeed: 2000,
-};
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
 
-if(trip){
-return(
-  <div className="ChosenCampGroundPage">
-  <div className="topBar">
-<h1 className="weekendertext">
-<Link to="/" style={{textDecoration: 'none', textEmphasisColor: 'white'}}>WEEKENDER </Link></h1>
-  <h1 className='welcome'>{trip.campsiteName}</h1>
-  <button className='logoutButton' onClick={(logout)}>Log Out</button>
-</div>
-   <TripWeatherbar trip={trip} updateWeatherDataState={updateWeatherDataState}/>
-   {/* <img src={trip.campsiteImg[0].URL}/> */}
-   <div className='photoSlider'>
-<Slider {...settings}>
-{trip?.campsiteImg.map((image) => (
-<div className="no">
-     <img className='ChosenCampGroundPhotos' src={image.URL} />
-     <span className="text">{trip.campsiteName}</span>
-     </div>
-))}
-</Slider>
-</div>
-<div className='BottomStuff'>
-   <div className="ChosenCampGroundDesc"dangerouslySetInnerHTML={{ __html: trip.campsiteDesc}} />
-   
-   <Link to="/packing-list" state={{weatherData:weatherData}}style={{textDecoration: 'none', textEmphasisColor: 'white'}}>
-   <button className='listButton'>Packing List</button>
-   </Link>
-   </div>
-   </div>
- )
-}else{
-  return(
-    <div>farts</div>
-  )
-}
+  if (trip) {
+    return (
+      <div className="ChosenCampGroundPage">
+        <div className="topBar">
+          <h1 className="weekendertext">
+            <Link to="/" style={{ textDecoration: 'none', textEmphasisColor: 'white' }}>WEEKENDER </Link></h1>
+          <h1 className='welcome'>{trip.campsiteName}</h1>
+          <button className='logoutButton' onClick={(logout)}>Log Out</button>
+        </div>
+        <TripWeatherbar trip={trip} updateWeatherDataState={updateWeatherDataState} />
+        {/* <img src={trip.campsiteImg[0].URL}/> */}
+        <div className='photoSlider'>
+          <Slider {...settings}>
+            {trip?.campsiteImg.map((image) => (
+              <div className="no">
+                <img className='ChosenCampGroundPhotos' src={image.URL} />
+                <span className="text">{trip.campsiteName}</span>
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <div className='BottomStuff'>
+          <div className="ChosenCampGroundDesc" dangerouslySetInnerHTML={{ __html: trip.campsiteDesc }} />
+
+          <Link to="/packing-list" state={{ weatherData: weatherData }} style={{ textDecoration: 'none', textEmphasisColor: 'white' }}>
+            <button className='listButton'>Packing List</button>
+          </Link>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <div>farts</div>
+    )
+  }
 };
 
 export default UpcomingTrip
