@@ -382,6 +382,7 @@ Campground List styles */
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0px;
+  border-radius: 10px;
 }
 
 .forecast-tombstone{
@@ -393,16 +394,23 @@ Campground List styles */
   text-align: center;
   padding: 15px;
   background-color: whitesmoke;
-  border-radius: 10px;
-
-  /* 3 to a row */
-  /* 5 to a row */
-  /* 9 to a row */
 }
+
+.forecast-tombstone:hover{
+  display: inline-block;
+  vertical-align: top;
+  margin: 0px auto;
+  white-space: normal;
+  font-size: 11px;
+  text-align: center;
+  padding: 15px;
+  background-color: white;
+}
+
 .day-of-week{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1px;
+  font-size: 15px;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -411,6 +419,7 @@ Campground List styles */
   font-weight: bold;
   font-size: 14px;
   margin-top: auto;
+  color: #686666;
 }
 
 .precipitation-probability{
