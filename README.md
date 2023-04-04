@@ -49,7 +49,7 @@ Set body settings in Postman to raw and JSON. Body:
     "dateEnd": "2023-04-03", 
     "campsiteImg": [{"URL":"https://cdn.recreation.gov/public/images/68613.jpg"},{"URL":"https://cdn.recreation.gov/public/images/68805.jpg"}],
     "campsiteName": "GRAHAM CREEK CAMPGROUND", 
-    "campsiteDesc": "<h2>An Amazing Getaway Just For You!</h2>", 
+    "campsiteDesc": "&lt;h2&gt;An Amazing Getaway Just For You!&lt;/h2&gt;", 
     "campsiteLong": -107.54, 
     "campsiteLat": 37.3902778 
   } 
