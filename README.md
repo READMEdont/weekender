@@ -30,12 +30,12 @@ Open-Meteo: https://api.open-meteo.com/v1/forecast. (NO KEY REQ)
 
 
 .ENV file config:
-GOOGLE_CLIENT_ID= 
-GOOGLE_CLIENT_SECRET= 
-REC_KEY= 
-CLIENT_URL='http://localhost:8080/' 
-REACT_APP_CLIENT_URL=http://localhost:8080/ 
-DB_URI='mongodb://localhost/weekender' 
+GOOGLE_CLIENT_ID= \n
+GOOGLE_CLIENT_SECRET= \n
+REC_KEY= \n
+CLIENT_URL='http://localhost:8080/' \n
+REACT_APP_CLIENT_URL=http://localhost:8080/ \n
+DB_URI='mongodb://localhost/weekender' \n
 
 Helpful information:
 
