@@ -30,12 +30,12 @@ Open-Meteo: https://api.open-meteo.com/v1/forecast. (NO KEY REQ)
 
 
 .ENV file config:
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-REC_KEY=
-CLIENT_URL='http://localhost:8080/'
-REACT_APP_CLIENT_URL=http://localhost:8080/
-DB_URI='mongodb://localhost/weekender'
+GOOGLE_CLIENT_ID= /n
+GOOGLE_CLIENT_SECRET= /n
+REC_KEY= /n
+CLIENT_URL='http://localhost:8080/' /n
+REACT_APP_CLIENT_URL=http://localhost:8080/ /n
+DB_URI='mongodb://localhost/weekender' /n
 
 Helpful information:
 
@@ -43,16 +43,16 @@ On some deployments of this app, the application breaks if the database is empty
 Postman POST REQUEST TO: http://localhost:8080/trips/trips/<your user id> (user id will exist in the datbase AFTER logging in with google auth)
 Set body settings in postman to raw and JSON
 body: 
-{"data":{
-    "dateStart": "2023-04-08" ,
-    "dateEnd": "2023-04-03",
-    "campsiteImg": [{"URL":"https://cdn.recreation.gov/public/images/68613.jpg"},{"URL":"https://cdn.recreation.gov/public/images/68805.jpg"}],
-    "campsiteName": "GRAHAM CREEK CAMPGROUND",
-    "campsiteDesc": "<h2>An Amazing Getaway Just For You!</h2>",
-    "campsiteLong": -107.54,
-    "campsiteLat": 37.3902778 
-  }
-};
+{"data":{ /n
+    "dateStart": "2023-04-08" , /n
+    "dateEnd": "2023-04-03", /n
+    "campsiteImg": [{"URL":"https://cdn.recreation.gov/public/images/68613.jpg"},{"URL":"https://cdn.recreation.gov/public/images/68805.jpg"}], /n
+    "campsiteName": "GRAHAM CREEK CAMPGROUND", /n
+    "campsiteDesc": "<h2>An Amazing Getaway Just For You!</h2>", /n
+    "campsiteLong": -107.54, /n
+    "campsiteLat": 37.3902778 /n
+  } /n
+}; /n
 
 Recieve 201, and database should be seeded, and you can use the website as intended.
 Preview:
